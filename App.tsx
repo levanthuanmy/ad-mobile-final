@@ -11,17 +11,27 @@ import {
 import welcomeBanner from "./assets/welcome.png"
 
 export default function App() {
-  const [signInData, setSignInData] = useState({ username: "", password: "" })
-  console.log("App - signInData", signInData)
+  const [signInData, setSignInData] = useState({ email: "", password: "" })
+
+  const handleSignIn = async () => {
+    const res = await fetch(`https://sandbox.api.lettutor.com/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...signInData }),
+    })
+    console.log("handleSignIn - res", await res.json())
+  }
 
   return (
     <View style={styles.container}>
       <Image source={welcomeBanner} style={styles.image}></Image>
       <TextInput
         style={styles.input}
-        placeholder="Username"
-        onChangeText={(username) =>
-          setSignInData({ username, password: signInData.password })
+        placeholder="Email"
+        onChangeText={(email) =>
+          setSignInData({ email, password: signInData.password })
         }
       />
       <TextInput
@@ -29,11 +39,11 @@ export default function App() {
         placeholder="Password"
         secureTextEntry
         onChangeText={(password) =>
-          setSignInData({ username: signInData.username, password })
+          setSignInData({ email: signInData.email, password })
         }
       />
 
-      <Button onPress={() => {}} title="Sign in" />
+      <Button onPress={handleSignIn} title="Sign in" />
       <StatusBar style="auto" />
     </View>
   )
