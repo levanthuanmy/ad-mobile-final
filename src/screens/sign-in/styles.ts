@@ -1,7 +1,13 @@
 import { Dimensions, StyleSheet } from "react-native"
+import {
+  PRIMARY_COLOR,
+  SECONDARY_COLOR,
+  TITLE_TEXT_SIZE,
+  TITLE_TEXT_WEIGHT,
+} from "../../../constants"
 import { BANNER_PART_TOOK } from "./constants"
 
-export const styles = StyleSheet.create({
+export const signInStyles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     position: "relative",
@@ -32,12 +38,12 @@ export const styles = StyleSheet.create({
     borderTopEndRadius: 15,
   },
   title: {
-    fontSize: 18,
-    fontWeight: "600",
+    fontSize: TITLE_TEXT_SIZE,
+    fontWeight: TITLE_TEXT_WEIGHT,
     paddingBottom: 16,
   },
   textSecondary: {
-    color: "#a4a4a4",
+    color: SECONDARY_COLOR,
     fontWeight: "500",
   },
   textSignUpContainer: {
@@ -51,7 +57,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 18,
   },
   textPrimary: {
-    color: "#5352ed",
+    color: PRIMARY_COLOR,
     fontWeight: "500",
   },
 })

@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from "react-native"
+import { PRIMARY_COLOR } from "../../../constants"
 
 const defaultBtnContainer: StyleProp<ViewStyle> = {
   elevation: 8,
-  backgroundColor: "#5352ed",
+  backgroundColor: PRIMARY_COLOR,
   borderRadius: 10,
   paddingVertical: 10,
   paddingHorizontal: 12,

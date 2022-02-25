@@ -5,7 +5,7 @@ import { Image, Text, TextInput, View } from "react-native"
 import { RootStackParamList } from "../../../App"
 import welcomeBanner from "../../../assets/welcome.png"
 import MyButton from "../../components/button"
-import { styles } from "./styles"
+import { signInStyles } from "./styles"
 
 type Props = NativeStackScreenProps<RootStackParamList, "Sign In">
 
@@ -24,19 +24,19 @@ const SignInScreen: FC<Props> = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
-      <Image source={welcomeBanner} style={styles.image}></Image>
-      <View style={styles.formContainer}>
-        <Text style={styles.title}>Sign in</Text>
+    <View style={signInStyles.container}>
+      <Image source={welcomeBanner} style={signInStyles.image}></Image>
+      <View style={signInStyles.formContainer}>
+        <Text style={signInStyles.title}>Sign in</Text>
         <TextInput
-          style={styles.input}
+          style={signInStyles.input}
           placeholder="Email"
           onChangeText={(email) =>
             setSignInData({ email, password: signInData.password })
           }
         />
         <TextInput
-          style={styles.input}
+          style={signInStyles.input}
           placeholder="Password"
           secureTextEntry
           onChangeText={(password) =>
@@ -44,15 +44,15 @@ const SignInScreen: FC<Props> = ({ navigation }) => {
           }
         />
         <MyButton onPress={handleSignIn} title="Sign in" />
-        <Text style={styles.textSecondary}>Forgot password?</Text>
+        <Text style={signInStyles.textSecondary}>Forgot password?</Text>
 
-        <View style={styles.textSignUpContainer}>
-          <Text style={styles.textSecondary}>Don't have an account? </Text>
+        <View style={signInStyles.textSignUpContainer}>
+          <Text style={signInStyles.textSecondary}>Don't have an account? </Text>
           <Text
             onPress={() => navigation.navigate("Sign Up")}
-            style={styles.textPrimary}
+            style={signInStyles.textPrimary}
           >
-            Sign up{" "}
+            Sign up
           </Text>
         </View>
       </View>
