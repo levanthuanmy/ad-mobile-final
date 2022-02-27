@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { StatusBar } from "expo-status-bar"
-import React, { FC, useState } from "react"
+import React, { FC } from "react"
 import { Image, Text, TextInput, View } from "react-native"
 import { RootStackParamList } from "../../../App"
 import welcomeBanner from "../../../assets/welcome.png"
@@ -10,17 +10,18 @@ import { signInStyles } from "./styles"
 type Props = NativeStackScreenProps<RootStackParamList, "Sign In">
 
 const SignInScreen: FC<Props> = ({ navigation }) => {
-  const [signInData, setSignInData] = useState({ email: "", password: "" })
+  // const [signInData, setSignInData] = useState({ email: "", password: "" })
 
   const handleSignIn = async () => {
-    const res = await fetch(`https://sandbox.api.lettutor.com/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...signInData }),
-    })
-    console.log("handleSignIn - res", await res.json())
+    // const res = await fetch(`https://sandbox.api.lettutor.com/auth/login`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ ...signInData }),
+    // })
+    // console.log("handleSignIn - res", await res.json())
+    navigation.navigate("Bottom Tab Navigation")
   }
 
   return (
@@ -31,23 +32,25 @@ const SignInScreen: FC<Props> = ({ navigation }) => {
         <TextInput
           style={signInStyles.input}
           placeholder="Email"
-          onChangeText={(email) =>
-            setSignInData({ email, password: signInData.password })
-          }
+          // onChangeText={(email) =>
+          //   setSignInData({ email, password: signInData.password })
+          // }
         />
         <TextInput
           style={signInStyles.input}
           placeholder="Password"
           secureTextEntry
-          onChangeText={(password) =>
-            setSignInData({ email: signInData.email, password })
-          }
+          // onChangeText={(password) =>
+          //   setSignInData({ email: signInData.email, password })
+          // }
         />
         <MyButton onPress={handleSignIn} title="Sign in" />
         <Text style={signInStyles.textSecondary}>Forgot password?</Text>
 
         <View style={signInStyles.textSignUpContainer}>
-          <Text style={signInStyles.textSecondary}>Don't have an account? </Text>
+          <Text style={signInStyles.textSecondary}>
+            Don't have an account?{" "}
+          </Text>
           <Text
             onPress={() => navigation.navigate("Sign Up")}
             style={signInStyles.textPrimary}
