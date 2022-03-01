@@ -1,6 +1,7 @@
 import { FontAwesome5, Ionicons, MaterialIcons } from "@expo/vector-icons"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React, { FC } from "react"
+import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../constants"
 import CourseListScreen from "../../screens/course-list"
 import ScheduleScreen from "../../screens/schedule"
 import TeacherListScreen from "../../screens/teacher-list"
@@ -41,15 +42,15 @@ const BottomTabNavigation: FC = () => {
 
           return iconComponent
         },
-        tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: PRIMARY_COLOR,
+        tabBarInactiveTintColor: SECONDARY_COLOR,
       })}
-      initialRouteName="Teacher List"
+      initialRouteName="Course List"
     >
       <Tab.Screen name="Teacher List" component={TeacherListScreen} />
       <Tab.Screen name="Schedule" component={ScheduleScreen} />
       <Tab.Screen name="Course List" component={CourseListScreen} />
-      <Tab.Screen name="Profile" component={CourseListScreen} />
+      {/* <Tab.Screen name="Profile" component={CourseListScreen} /> */}
     </Tab.Navigator>
   )
 }
