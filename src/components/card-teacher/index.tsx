@@ -1,3 +1,4 @@
+import { AntDesign } from "@expo/vector-icons"
 import React, { FC } from "react"
 import { Image, StyleSheet, Text, View } from "react-native"
 import womenAvatar from "../../../assets/img/avatar-1.jpg"
@@ -6,11 +7,12 @@ import {
   SECONDARY_COLOR,
   TINT_PRIMARY_COLOR,
 } from "../../../constants"
-import { AntDesign } from "@expo/vector-icons"
 import MyButton from "../button"
 import SubjectBadge from "../subject-badge"
 
-const CardTeacher: FC = () => {
+const CardTeacher: FC<{ onToTeacherDetail: () => void }> = ({
+  onToTeacherDetail,
+}) => {
   return (
     <View style={teacherCardStyles.container}>
       <View style={teacherCardStyles.header}>
@@ -36,7 +38,7 @@ const CardTeacher: FC = () => {
           Professor from Howard University.
         </Text>
         <MyButton
-          onPress={() => {}}
+          onPress={onToTeacherDetail}
           title="Book now"
           btnContainer={teacherCardStyles.btnContainer}
         />

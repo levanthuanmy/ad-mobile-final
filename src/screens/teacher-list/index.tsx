@@ -1,3 +1,4 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import React, { FC } from "react"
 import {
   SafeAreaView,
@@ -6,10 +7,17 @@ import {
   StyleSheet,
   TextInput,
 } from "react-native"
+import { RootStackParamList } from "../../../App"
+import { RootBottomTabParamList } from "../../components/bottom-tab-navigation"
 import CardTeacher from "../../components/card-teacher"
 import SubjectBadge from "../../components/subject-badge"
 
-const TeacherListScreen: FC = () => {
+type Props = NativeStackScreenProps<
+  RootBottomTabParamList & RootStackParamList,
+  "Teacher List"
+>
+
+const TeacherListScreen: FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView style={teacherListStyles.container}>
       <ScrollView style={teacherListStyles.scrollViewContainer}>
@@ -31,11 +39,18 @@ const TeacherListScreen: FC = () => {
           <SubjectBadge active={false} name="Web development" />
         </ScrollView>
 
-        <CardTeacher />
-        <CardTeacher />
-        <CardTeacher />
-        <CardTeacher />
-        <CardTeacher />
+        <CardTeacher
+          onToTeacherDetail={() => navigation.navigate("Teacher Detail")}
+        />
+        <CardTeacher
+          onToTeacherDetail={() => navigation.navigate("Teacher Detail")}
+        />
+        <CardTeacher
+          onToTeacherDetail={() => navigation.navigate("Teacher Detail")}
+        />
+        <CardTeacher
+          onToTeacherDetail={() => navigation.navigate("Teacher Detail")}
+        />
       </ScrollView>
     </SafeAreaView>
   )
