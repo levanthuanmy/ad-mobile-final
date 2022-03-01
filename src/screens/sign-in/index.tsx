@@ -45,7 +45,12 @@ const SignInScreen: FC<Props> = ({ navigation }) => {
           // }
         />
         <MyButton onPress={handleSignIn} title="Sign in" />
-        <Text style={signInStyles.textSecondary}>Forgot password?</Text>
+        <Text
+          style={signInStyles.textSecondary}
+          onPress={() => navigation.navigate("Reset Password")}
+        >
+          Forgot password?
+        </Text>
 
         <View style={signInStyles.textSignUpContainer}>
           <Text style={signInStyles.textSecondary}>
