@@ -8,6 +8,7 @@ import {
 } from "../../../constants"
 import { AntDesign } from "@expo/vector-icons"
 import MyButton from "../button"
+import SubjectBadge from "../subject-badge"
 
 const CardTeacher: FC = () => {
   return (
@@ -26,10 +27,10 @@ const CardTeacher: FC = () => {
 
       <View style={teacherCardStyles.descriptionContainer}>
         <View style={teacherCardStyles.subjectBadgeContainer}>
-          <Text style={teacherCardStyles.subjectBadge}>C++</Text>
-          <Text style={teacherCardStyles.subjectBadge}>Python</Text>
-          <Text style={teacherCardStyles.subjectBadge}>Web</Text>
-          <Text style={teacherCardStyles.subjectBadge}>Marketing</Text>
+          <SubjectBadge active name="Python" />
+          <SubjectBadge active name="Marketing" />
+          <SubjectBadge active name="IELTS" />
+          <SubjectBadge active name="TOEIC" />
         </View>
         <Text style={teacherCardStyles.textDescription}>
           Professor from Howard University.
@@ -44,7 +45,7 @@ const CardTeacher: FC = () => {
   )
 }
 
-const teacherCardStyles = StyleSheet.create({
+export const teacherCardStyles = StyleSheet.create({
   container: {
     backgroundColor: TINT_PRIMARY_COLOR,
     borderRadius: 10,
@@ -104,18 +105,6 @@ const teacherCardStyles = StyleSheet.create({
   subjectBadgeContainer: {
     flex: 1,
     flexDirection: "row",
-  },
-  subjectBadge: {
-    backgroundColor: TINT_PRIMARY_COLOR,
-    borderColor: PRIMARY_COLOR,
-    borderWidth: 1,
-    color: PRIMARY_COLOR,
-    fontWeight: "600",
-    borderRadius: 100,
-    paddingVertical: 4,
-    fontSize: 11,
-    paddingHorizontal: 8,
-    marginEnd: 4,
   },
   textDescription: {
     paddingTop: 8,

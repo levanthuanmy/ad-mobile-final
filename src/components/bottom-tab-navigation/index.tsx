@@ -46,7 +46,7 @@ const BottomTabNavigation: FC = () => {
         tabBarActiveTintColor: PRIMARY_COLOR,
         tabBarInactiveTintColor: SECONDARY_COLOR,
       })}
-      initialRouteName="Profile"
+      initialRouteName="Teacher List"
     >
       <Tab.Screen name="Teacher List" component={TeacherListScreen} />
       <Tab.Screen name="Schedule" component={ScheduleScreen} />
