@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar"
 import React, { FC } from "react"
 import { Image, Text, TextInput, View } from "react-native"
 import { RootStackParamList } from "../../../App"
-import welcomeBanner from "../../../assets/welcome.png"
+import welcomeBanner from "../../../assets/img/welcome.png"
 import MyButton from "../../components/button"
 import { signInStyles } from "./styles"
 

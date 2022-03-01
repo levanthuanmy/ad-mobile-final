@@ -1,30 +1,27 @@
 import React, { FC } from "react"
-import { Image, StyleSheet, Text, View } from "react-native"
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet } from "react-native"
+import CardTeacher from "../../components/card-teacher"
 
 const TeacherListScreen: FC = () => {
   return (
-    <View style={teacherListStyles.container}>
-      <View>
-        <View>
-          {/* card component */}
-          <View>
-            {/* <Image ></Image> */}
-            <Text>name</Text>
-            <Text>rating</Text>
-          </View>
-          <View>
-            <Text>Toán</Text>
-            <Text>Lý</Text>
-            <Text>Hoá</Text>
-          </View>
-        </View>
-      </View>
-    </View>
+    <SafeAreaView style={teacherListStyles.container}>
+      <ScrollView style={teacherListStyles.scrollViewContainer}>
+        <CardTeacher />
+        <CardTeacher />
+        <CardTeacher />
+        <CardTeacher />
+        <CardTeacher />
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
 const teacherListStyles = StyleSheet.create({
   container: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+  },
+  scrollViewContainer: {
     padding: 16,
   },
 })
