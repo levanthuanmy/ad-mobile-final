@@ -29,7 +29,13 @@ export default function App() {
           name="Bottom Tab Navigation"
           component={BottomTabNavigation}
         />
-        <Stack.Screen name="Teacher Detail" component={TeacherDetailScreen} />
+        <Stack.Screen
+          options={{
+            headerShown: true,
+          }}
+          name="Teacher Detail"
+          component={TeacherDetailScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

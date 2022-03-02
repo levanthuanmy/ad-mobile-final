@@ -1,4 +1,3 @@
-import { AntDesign } from "@expo/vector-icons"
 import React, { FC } from "react"
 import { Image, StyleSheet, Text, View } from "react-native"
 import womenAvatar from "../../../assets/img/avatar-1.jpg"
@@ -8,6 +7,7 @@ import {
   TINT_PRIMARY_COLOR,
 } from "../../../constants"
 import MyButton from "../button"
+import RatingBadge from "../rating-badge"
 import SubjectBadge from "../subject-badge"
 
 const CardTeacher: FC<{ onToTeacherDetail: () => void }> = ({
@@ -19,11 +19,7 @@ const CardTeacher: FC<{ onToTeacherDetail: () => void }> = ({
         <Image source={womenAvatar} style={teacherCardStyles.avatar}></Image>
         <View style={teacherCardStyles.titleContainer}>
           <Text style={teacherCardStyles.textName}>John Doe</Text>
-          <View style={teacherCardStyles.ratingContainer}>
-            <Text style={teacherCardStyles.textRating}>
-              5 <AntDesign name="star" size={14} color="gold" />
-            </Text>
-          </View>
+          <RatingBadge rating={4} />
         </View>
       </View>
 
@@ -87,22 +83,9 @@ export const teacherCardStyles = StyleSheet.create({
     borderBottomEndRadius: 10,
     borderTopStartRadius: 10,
   },
-  ratingContainer: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    paddingTop: 8,
-  },
   textName: {
     fontWeight: "600",
     fontSize: 18,
-  },
-  textRating: {
-    backgroundColor: "#fff",
-    paddingVertical: 2,
-    paddingHorizontal: 8,
-    borderRadius: 10,
-    fontWeight: "600",
   },
   subjectBadgeContainer: {
     flex: 1,
