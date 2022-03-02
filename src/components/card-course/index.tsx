@@ -1,11 +1,20 @@
 import React, { FC } from "react"
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import {
+  GestureResponderEvent,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native"
 import courseBanner from "../../../assets/img/course-banner.png"
 import { SECONDARY_COLOR } from "../../../constants"
 
-const CardCourse: FC = () => {
+const CardCourse: FC<{ onPress: (event: GestureResponderEvent) => void }> = ({
+  onPress,
+}) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View style={courseStyles.container}>
         <Image source={courseBanner} style={courseStyles.banner} />
         <View style={courseStyles.infoContainer}>

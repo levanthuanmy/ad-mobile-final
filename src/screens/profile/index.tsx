@@ -11,8 +11,7 @@ import {
 } from "react-native"
 import menAvt from "../../../assets/img/avatar-2.jpg"
 import { SECONDARY_COLOR } from "../../../constants"
-import { Ionicons } from "@expo/vector-icons"
-import { MaterialCommunityIcons } from "@expo/vector-icons"
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons"
 import MyButton from "../../components/button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootBottomTabParamList } from "../../components/bottom-tab-navigation"
@@ -41,13 +40,21 @@ const ProfileScreen: FC<Props> = ({ navigation }) => {
             <Text style={profileStyles.textOption}>Change password</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={profileStyles.option}>
+          <TouchableOpacity
+            style={profileStyles.option}
+            onPress={() => navigation.navigate("Session history")}
+          >
             <MaterialCommunityIcons
               name="timeline-clock-outline"
               size={24}
               color="black"
             />
             <Text style={profileStyles.textOption}>Session history</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={profileStyles.option}>
+            <MaterialCommunityIcons name="teach" size={24} color="black" />
+            <Text style={profileStyles.textOption}>Become a teacher</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={profileStyles.option}>

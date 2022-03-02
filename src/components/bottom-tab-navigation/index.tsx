@@ -1,13 +1,20 @@
-import { FontAwesome5, Ionicons, MaterialIcons } from "@expo/vector-icons"
+import {
+  FontAwesome5,
+  Ionicons,
+  MaterialIcons,
+  Entypo,
+} from "@expo/vector-icons"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React, { FC } from "react"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../constants"
 import CourseListScreen from "../../screens/course-list"
+import HomeScreen from "../../screens/home"
 import ProfileScreen from "../../screens/profile"
 import ScheduleScreen from "../../screens/schedule"
 import TeacherListScreen from "../../screens/teacher-list"
 
 export type RootBottomTabParamList = {
+  Home: undefined
   "Teacher List": undefined
   Schedule: undefined
   "Course List": undefined
@@ -39,6 +46,8 @@ const BottomTabNavigation: FC = () => {
             iconComponent = (
               <MaterialIcons name="account-circle" size={18} color={color} />
             )
+          } else if (route.name === "Home") {
+            iconComponent = <Entypo name="home" size={18} color={color} />
           }
 
           return iconComponent
@@ -46,8 +55,9 @@ const BottomTabNavigation: FC = () => {
         tabBarActiveTintColor: PRIMARY_COLOR,
         tabBarInactiveTintColor: SECONDARY_COLOR,
       })}
-      initialRouteName="Teacher List"
+      initialRouteName="Home"
     >
+      <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Teacher List" component={TeacherListScreen} />
       <Tab.Screen name="Schedule" component={ScheduleScreen} />
       <Tab.Screen name="Course List" component={CourseListScreen} />

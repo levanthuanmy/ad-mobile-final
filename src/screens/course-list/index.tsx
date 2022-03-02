@@ -1,14 +1,23 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import React, { FC } from "react"
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet } from "react-native"
+import { RootStackParamList } from "../../../App"
+import { RootBottomTabParamList } from "../../components/bottom-tab-navigation"
 import CardCourse from "../../components/card-course"
 
-const CourseListScreen: FC = () => {
+type Props = NativeStackScreenProps<
+  RootBottomTabParamList & RootStackParamList,
+  "Course List"
+>
+
+const CourseListScreen: FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView style={courseListStyles.container}>
       <ScrollView style={courseListStyles.scrollViewContainer}>
-        <CardCourse />
-        <CardCourse />
-        <CardCourse />
+        <CardCourse onPress={() => navigation.navigate("Course Detail")} />
+        <CardCourse onPress={() => navigation.navigate("Course Detail")} />
+        <CardCourse onPress={() => navigation.navigate("Course Detail")} />
+        <CardCourse onPress={() => navigation.navigate("Course Detail")} />
       </ScrollView>
     </SafeAreaView>
   )
