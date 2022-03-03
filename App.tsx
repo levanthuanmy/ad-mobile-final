@@ -4,6 +4,7 @@ import BottomTabNavigation from "./src/components/bottom-tab-navigation"
 import CourseDetailScreen from "./src/screens/course-detail"
 import ResetPasswordScreen from "./src/screens/reset-password"
 import SessionHistory from "./src/screens/seasion-history"
+import SettingScreen from "./src/screens/setting"
 import SignInScreen from "./src/screens/sign-in"
 import SignUpScreen from "./src/screens/sign-up"
 import TeacherDetailScreen from "./src/screens/teacher-detail"
@@ -16,6 +17,7 @@ export type RootStackParamList = {
   "Teacher Detail": undefined
   "Course Detail": undefined
   "Session history": undefined
+  Setting: undefined
 }
 
 export default function App() {
@@ -24,7 +26,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="Sign In"
+        initialRouteName="Setting"
       >
         <Stack.Screen name="Sign In" component={SignInScreen} />
         <Stack.Screen name="Sign Up" component={SignUpScreen} />
@@ -53,6 +55,13 @@ export default function App() {
           }}
           name="Session history"
           component={SessionHistory}
+        />
+        <Stack.Screen
+          options={{
+            headerShown: true,
+          }}
+          name="Setting"
+          component={SettingScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -57,7 +57,10 @@ const ProfileScreen: FC<Props> = ({ navigation }) => {
             <Text style={profileStyles.textOption}>Become a teacher</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={profileStyles.option}>
+          <TouchableOpacity
+            style={profileStyles.option}
+            onPress={() => navigation.navigate("Setting")}
+          >
             <Ionicons name="settings-outline" size={24} color="black" />
             <Text style={profileStyles.textOption}>Setting</Text>
           </TouchableOpacity>
