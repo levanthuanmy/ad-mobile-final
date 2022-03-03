@@ -32,7 +32,9 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
           <Text style={homeStyles.textNoti}>Upcoming meeting</Text>
           <Text style={homeStyles.textNoti}>20:30 - 21:00 Thu, 03/03/2022</Text>
           <MyButton
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate("Meeting")
+            }}
             title="Join now"
             btnContainer={homeStyles.btnJoin}
             btnText={homeStyles.btnJoinText}

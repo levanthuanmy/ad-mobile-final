@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import BottomTabNavigation from "./src/components/bottom-tab-navigation"
 import CourseDetailScreen from "./src/screens/course-detail"
+import MeetingScreen from "./src/screens/meeting"
 import ResetPasswordScreen from "./src/screens/reset-password"
 import SessionHistory from "./src/screens/seasion-history"
 import SettingScreen from "./src/screens/setting"
@@ -18,6 +19,7 @@ export type RootStackParamList = {
   "Course Detail": undefined
   "Session history": undefined
   Setting: undefined
+  Meeting: undefined
 }
 
 export default function App() {
@@ -26,7 +28,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="Setting"
+        initialRouteName="Meeting"
       >
         <Stack.Screen name="Sign In" component={SignInScreen} />
         <Stack.Screen name="Sign Up" component={SignUpScreen} />
@@ -62,6 +64,13 @@ export default function App() {
           }}
           name="Setting"
           component={SettingScreen}
+        />
+        <Stack.Screen
+          options={{
+            headerShown: true,
+          }}
+          name="Meeting"
+          component={MeetingScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,12 +1,19 @@
 import React, { FC } from "react"
-import { Image, StyleSheet, Text, View } from "react-native"
+import {
+  GestureResponderEvent,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native"
 import menAvatar from "../../../assets/img/avatar-2.jpg"
 import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../constants"
 import MyButton from "../button"
 
 const CardSchedule: FC<{
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>
-}> = ({ setShowModal }) => {
+  handleJoinMeeting: (event: GestureResponderEvent) => void
+}> = ({ setShowModal, handleJoinMeeting }) => {
   return (
     <View style={cardEventStyles.cardEventContainer}>
       <View style={cardEventStyles.header}>
@@ -30,7 +37,7 @@ const CardSchedule: FC<{
         </View>
         <View style={cardEventStyles.btnContainer}>
           <MyButton
-            onPress={() => {}}
+            onPress={handleJoinMeeting}
             title="Join meeting"
             btnContainer={cardEventStyles.btnAccept}
           />
