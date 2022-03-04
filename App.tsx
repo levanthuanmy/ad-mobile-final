@@ -1,8 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import BottomTabNavigation from "./src/components/bottom-tab-navigation"
+import ChangingPassword from "./src/screens/changing-password"
 import CourseDetailScreen from "./src/screens/course-detail"
 import MeetingScreen from "./src/screens/meeting"
+import ProfileManagement from "./src/screens/profile-management"
 import ResetPasswordScreen from "./src/screens/reset-password"
 import SessionHistory from "./src/screens/seasion-history"
 import SettingScreen from "./src/screens/setting"
@@ -20,6 +22,8 @@ export type RootStackParamList = {
   "Session history": undefined
   Setting: undefined
   Meeting: undefined
+  "Profile Management": undefined
+  "Changing Password": undefined
 }
 
 export default function App() {
@@ -71,6 +75,20 @@ export default function App() {
           }}
           name="Meeting"
           component={MeetingScreen}
+        />
+        <Stack.Screen
+          options={{
+            headerShown: true,
+          }}
+          name="Profile Management"
+          component={ProfileManagement}
+        />
+        <Stack.Screen
+          options={{
+            headerShown: true,
+          }}
+          name="Changing Password"
+          component={ChangingPassword}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -11,7 +11,7 @@ import {
 } from "react-native"
 import menAvt from "../../../assets/img/avatar-2.jpg"
 import { SECONDARY_COLOR } from "../../../constants"
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons"
+import { Ionicons, MaterialCommunityIcons, AntDesign } from "@expo/vector-icons"
 import MyButton from "../../components/button"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootBottomTabParamList } from "../../components/bottom-tab-navigation"
@@ -35,9 +35,20 @@ const ProfileScreen: FC<Props> = ({ navigation }) => {
         </View>
 
         <View style={profileStyles.optionContainer}>
-          <TouchableOpacity style={profileStyles.option}>
+          <TouchableOpacity
+            style={profileStyles.option}
+            onPress={() => navigation.navigate("Changing Password")}
+          >
             <Ionicons name="ios-key-outline" size={24} color="black" />
             <Text style={profileStyles.textOption}>Change password</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={profileStyles.option}
+            onPress={() => navigation.navigate("Profile Management")}
+          >
+            <AntDesign name="profile" size={24} color="black" />
+            <Text style={profileStyles.textOption}>Edit profile</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
